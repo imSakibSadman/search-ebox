@@ -1,0 +1,42 @@
+{
+    "name": "fs-ebox-search",
+    "version": "1.0.0",
+    "description": "This program is like a search engine for the website 'fs.ebox.live'",
+    "main": "index.js",
+    "scripts": {
+        "serve": "firebase emulators:start --only functions",
+        "shell": "firebase functions:shell",
+        "start": "npm run shell",
+        "deploy": "firebase deploy --only functions",
+        "logs": "firebase functions:log"
+    },
+    "engines": {
+        "node": "8"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/imSakibSadman/ftp-server-search-engine.git"
+    },
+    "keywords": [
+        "ftp",
+        "search",
+        "engine"
+    ],
+    "author": "Sadman Sakib",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/imSakibSadman/ftp-server-search-engine/issues"
+    },
+    "dependencies": {
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "express-useragent": "^1.0.15",
+        "firebase-admin": "^8.13.0",
+        "firebase-functions": "^3.6.1",
+        "moment": "^2.27.0"
+    },
+    "devDependencies": {
+        "firebase-functions-test": "^0.2.0"
+    },
+    "private": true
+}

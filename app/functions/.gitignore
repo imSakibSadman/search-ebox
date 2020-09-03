@@ -1,0 +1,4 @@
+node_modules/
+
+#Google cloud platfrom service account key
+ebox-gcp-sak.json

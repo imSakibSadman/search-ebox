@@ -1,0 +1,53 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <title>Search fs.ebox.live</title>
+    <meta charset="utf-8">
+    <meta name="HandheldFriendly" content="true">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <form class="main" onsubmit="getInputValue();" action="javascript:void(0);" autocomplete="off">
+        <div class="search_box" id="search_box">
+            <input type="text" placeholder="Search  fs.ebox.live" name="search" id="query">
+            <button type="button" onclick="getInputValue();" id="searchBtn" title="Search">
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+        <div id="loaderDiv">
+            <div id="loader"></div>
+        </div>
+    </form>
+
+    <div id="alertDiv">
+        <p id="alert" class="alert"></p>
+    </div>
+    <div class="table" id="tableDiv"></div>
+
+    <script src="script.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.2/firebase-analytics.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDCOwTeUH6z9z4SFXa4e6ggGJ4Y-2rBUqk",
+            authDomain: "ebox-17291.firebaseapp.com",
+            databaseURL: "https://ebox-17291.firebaseio.com",
+            projectId: "ebox-17291",
+            storageBucket: "ebox-17291.appspot.com",
+            messagingSenderId: "36743545283",
+            appId: "1:36743545283:web:1e42f1802d57b2062fbd76",
+            measurementId: "G-XGQWVS3P6M"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+</body>
+
+</html>
