@@ -55,71 +55,71 @@ app.post("/query", (request, response) => {
       browser: device.browser
     }
 
-    // } else {
-    //   deviceInfo = {
-    //     kernel: device.platform,
-    //     OS: device.os,
-    //     browser: device.browser
+  } else {
+    deviceInfo = {
+      kernel: device.platform,
+      OS: device.os,
+      browser: device.browser
 
-    //   }
-
-    // }
-
-    // grabbing date & time
-    let dateTime = moment().utcOffset('+0600').format('MMM, DD Y  HH:mm:ss')
-
-    dataToPost = { query: query.name, location: query.coords, deviceInfo }
-
-    // wrting user ip and query to firestore, ip as collection, dateTime as document
-    // query, location and deviceInfo as field
-    const docRef = db.collection(cuttedIp).doc(dateTime);
-
-    async function postData() {
-      await docRef.set(
-        dataToPost
-      );
     }
 
-    postData()
+  }
 
-    // reading main all-data file
-    filePath = path.join(__dirname, "datas/all-data.json");
-    const jsonAllData = fs.readFileSync(filePath, "utf8", function (err, data) {
-      if (err) throw err;
-    });
+  // grabbing date & time
+  let dateTime = moment().utcOffset('+0600').format('MMM, DD Y  HH:mm:ss')
 
-    // converting JSON file into object
-    const data = JSON.parse(jsonAllData);
+  dataToPost = { query: query.name, location: query.coords, deviceInfo }
 
-    // creating titles' array from data object
-    const titles = Object.keys(data);
+  // wrting user ip and query to firestore, ip as collection, dateTime as document
+  // query, location and deviceInfo as field
+  const docRef = db.collection(cuttedIp).doc(dateTime);
 
+  async function postData() {
+    await docRef.set(
+      dataToPost
+    );
+  }
 
-    // searching throung titles
-    String.prototype.isMatch = function (s) {
-      return this.match(s) !== null;
-    };
+  postData()
 
-    let matchedTitles = [];
-    for (t in titles) {
-      let match = titles[t].toLowerCase().isMatch(name);
-      if (match == true) {
-        matchedTitles.push(titles[t]);
-      }
-    }
-
-    // retriving addresses from data with matched titles
-    let matchedAdresses = [];
-    for (t in matchedTitles) {
-      addr = data[matchedTitles[t]];
-      matchedAdresses.push(addr);
-    }
-
-    // creating result(final response) object with titiles and corosponding adresses
-    let result = {};
-    matchedTitles.forEach((key, i) => (result[key] = matchedAdresses[i]));
-
-    response.json(result);
+  // reading main all-data file
+  filePath = path.join(__dirname, "datas/all-data.json");
+  const jsonAllData = fs.readFileSync(filePath, "utf8", function (err, data) {
+    if (err) throw err;
   });
+
+  // converting JSON file into object
+  const data = JSON.parse(jsonAllData);
+
+  // creating titles' array from data object
+  const titles = Object.keys(data);
+
+
+  // searching throung titles
+  String.prototype.isMatch = function (s) {
+    return this.match(s) !== null;
+  };
+
+  let matchedTitles = [];
+  for (t in titles) {
+    let match = titles[t].toLowerCase().isMatch(name);
+    if (match == true) {
+      matchedTitles.push(titles[t]);
+    }
+  }
+
+  // retriving addresses from data with matched titles
+  let matchedAdresses = [];
+  for (t in matchedTitles) {
+    addr = data[matchedTitles[t]];
+    matchedAdresses.push(addr);
+  }
+
+  // creating result(final response) object with titiles and corosponding adresses
+  let result = {};
+  matchedTitles.forEach((key, i) => (result[key] = matchedAdresses[i]));
+
+  response.json(result);
+});
 
 exports.app = functions.region('us-central1').https.onRequest(app);
