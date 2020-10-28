@@ -31,15 +31,24 @@ app.post("/query", (request, response) => {
   // getting user ip
   let ip = request.headers['x-forwarded-for']
 
+  // if (ip != undefined) {
+    // ip = ip.split(',')[0].toString()
+    // ip = ip.split('.')
+    // cuttedIp = ""
+    // for (let i = 0; i < ip.length - 1; i++) {
+    //   cuttedIp += ip[i] + '.'
+  //   }
+  // } else {
+  //   cuttedIp = 'localhost'
+  // }
+
+  let time = moment().utcOffset('+0600').format('HH:mm:ss')
+
   if (ip != undefined) {
     ip = ip.split(',')[0].toString()
-    ip = ip.split('.')
-    cuttedIp = ""
-    for (let i = 0; i < ip.length - 1; i++) {
-      cuttedIp += ip[i] + '.'
-    }
+    cuttedIp = ip + '  ' + time
   } else {
-    cuttedIp = 'localhost'
+    cuttedIp = 'localhost' + '  ' + time
   }
 
   // getting device info
@@ -66,13 +75,13 @@ app.post("/query", (request, response) => {
   }
 
   // grabbing date & time
-  let dateTime = moment().utcOffset('+0600').format('MMM, DD Y  HH:mm:ss')
+  let colDate = moment().utcOffset('+0600').format('MMM, DD Y')
 
   dataToPost = { query: query.name, location: query.coords, deviceInfo }
 
   // wrting user ip and query to firestore, ip as collection, dateTime as document
   // query, location and deviceInfo as field
-  const docRef = db.collection(cuttedIp).doc(dateTime);
+  const docRef = db.collection(colDate).doc(cuttedIp);
 
   async function postData() {
     await docRef.set(

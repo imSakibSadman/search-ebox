@@ -117,4 +117,25 @@ movies: 7526, 7526
 softwares: 115, 115 
 tv-series: 763, 763 
 tutorials: 12, 12 
+
+October 27, 2020 00:49:37
+animated: 139, 139 
+documentary: 54, 54 
+ebook: 1688, 1688 
+games: 526, 526 
+movies: 7678, 7678 
+softwares: 116, 116 
+tv-series: 816, 816 
+tutorials: 33, 33 
+
+October 29, 2020 02:14:47
+October 29, 2020 02:15:20
+animated: 141, 141 
+documentary: 54, 54 
+ebook: 1688, 1688 
+games: 527, 527 
+movies: 7681, 7681 
+softwares: 116, 116 
+tv-series: 820, 820 
+tutorials: 33, 33 
  

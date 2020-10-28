@@ -22,7 +22,7 @@ exceptions = ['.mp4', '.mkv', '.m4a', '.m4v', '.f4v', '.f4a', '.m4b', '.m4r', '.
               '.webm', '.flv', '.avi', '.quicktime', '.hdv', '.mxf', '.wav', '.mxf', '.vob', '.wmv', '.mpg', '.mp2',
               '.mpeg', '.mpe', '.mpv', '.mpg', '.mpeg', '.m2v']
 
-logfile = open('/home/sakib/projects/ebox/ebox-data/log.txt', 'a')
+logfile = open('/Users/sakib/ebox/ebox-data/log.txt', 'a')
 
 # Writing date and time to log file
 dt_now = arrow.now('Asia/Dhaka')
