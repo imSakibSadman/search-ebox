@@ -6,7 +6,7 @@ yarn-debug.log*
 yarn-error.log*
 firebase-debug.log*
 firebase-debug.*.log*
-package-lock.json
+# package-lock.json
 
 # Firebase cache
 .firebase/
@@ -65,3 +65,9 @@ node_modules/
 
 # dotenv environment variables file
 .env
+
+firestore.rules
+
+firestore.indexes.json
+
+.firebaserc

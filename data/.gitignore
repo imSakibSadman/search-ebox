@@ -1,0 +1,9 @@
+node_modules
+firestore
+# log.txt
+<<<<<<< HEAD:ebox-data/.gitignore
+search.py
+
+=======
+search.py   
+>>>>>>> 298731f804d06dd67087c78c1a4002541029f5e1:data/.gitignore

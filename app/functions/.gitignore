@@ -1,5 +1,5 @@
-node_modules/
-package-lock.json
+# node_modules/
+# package-lock.json
 
-#Google cloud platfrom service account key
-ebox-gcp-sak.json
+# #Google cloud platfrom service account key
+# ebox-gcp-sak.json

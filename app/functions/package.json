@@ -1,5 +1,5 @@
 {
-    "name": "fs-ebox-search",
+    "name": "search-fs.ebox.live",
     "version": "1.0.0",
     "description": "This program is like a search engine for the website 'fs.ebox.live'",
     "main": "index.js",
